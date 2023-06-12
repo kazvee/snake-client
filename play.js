@@ -4,6 +4,9 @@ const connect = function() {
     host: 'localhost',
     port: 50541,
   });
+  conn.on('data', (data) => {
+    console.log('Server says:', data);
+  });
   conn.on('connect', () => {
     console.log('Connected successfully! 😃');
   });
