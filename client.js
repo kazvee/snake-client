@@ -10,6 +10,7 @@ const connect = function() {
   });
   conn.on('connect', () => {
     console.log('Connected successfully! 😃');
+    conn.write("Name: SNK");
   });
   conn.setEncoding('utf8');
   return conn;
