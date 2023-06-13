@@ -29,6 +29,18 @@ const handleUserInput = (key) => {
     connection.write("Move: right");
   }
 
+  if (key === '1') {
+    connection.write("Say: hello snek frens!");
+  }
+
+  if (key === '2') {
+    connection.write("Say: Baby Snake do do do");
+  }
+
+  if (key === '3') {
+    connection.write("Say: om nom nom so hungry");
+  }
+
   if (key === '\u0003') {
     stdout.write('Exited game! 🐍\n');
     process.exit();
