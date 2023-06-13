@@ -1,19 +1,23 @@
 const { MOVE_UP_KEY, MOVE_LEFT_KEY, MOVE_DOWN_KEY, MOVE_RIGHT_KEY, MESSAGES } = require('./constants');
 
 let connection;
+const stdin = process.stdin;
+const stdout = process.stdout;
 
 const setupInput = (conn) => {
   connection = conn;
-  const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding('utf8');
   stdin.resume();
   stdin.on('data', handleUserInput);
+
+  // Handle server ending connection
+  connection.on('end', handleServerEnd);
+
   return stdin;
 };
 
 const handleUserInput = (key) => {
-  const stdout = process.stdout;
 
   if (key === MOVE_UP_KEY) {
     connection.write('Move: up');
@@ -40,6 +44,11 @@ const handleUserInput = (key) => {
     process.exit();
   }
 
+};
+
+const handleServerEnd = () => {
+  stdout.write('The server has ended the connection! 🐍\n');
+  process.exit();
 };
 
 module.exports = setupInput;

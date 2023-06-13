@@ -7,7 +7,7 @@ const connect = () => {
     port: PORT
   });
   conn.on('data', (data) => {
-    console.log('Server says:', data);
+    console.log('Server says:', data.trim());
   });
   conn.on('connect', () => {
     console.log('Connected successfully! 😃');
