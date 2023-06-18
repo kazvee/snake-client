@@ -2,7 +2,7 @@
 
 Snake game is a very popular video game. This is a multiplayer take on the genre.
 
-Before you can run this client, you will need to be running the server side which you can download and install from [here](https://github.com/lighthouse-labs/snek-multiplayer).
+Before you can run this client, you will need to be running the server side which you can download and install from [here](https://github.com/kazvee/snek-multiplayer).
 
 ## Final Product
 
@@ -12,7 +12,7 @@ Before you can run this client, you will need to be running the server side whic
 
 ## Purpose
 
-This project was created by [me](https://github.com/karvok) as part of my learnings at [Lighthouse Labs](https://www.lighthouselabs.ca/en/web-development-flex-program).
+This project was created by [me](https://github.com/kazvee) as part of my learnings at [Lighthouse Labs](https://www.lighthouselabs.ca/en/web-development-flex-program).
 
 ## Dependencies
 
