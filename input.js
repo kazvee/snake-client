@@ -4,10 +4,14 @@ let connection;
 const stdin = process.stdin;
 const stdout = process.stdout;
 
+// Set up input handling
 const setupInput = (conn) => {
   connection = conn;
   stdin.setRawMode(true);
+
+  // Interpret incoming data as text
   stdin.setEncoding('utf8');
+
   stdin.resume();
   stdin.on('data', handleUserInput);
 
@@ -17,6 +21,7 @@ const setupInput = (conn) => {
   return stdin;
 };
 
+// Handle user input for movement directions
 const handleUserInput = (key) => {
 
   if (key === MOVE_UP_KEY) {
@@ -35,19 +40,22 @@ const handleUserInput = (key) => {
     connection.write('Move: right');
   }
 
+  // Handle user input to send canned messages
   if (MESSAGES[key]) {
     connection.write(MESSAGES[key]);
   }
 
+  // Exit the game if player presses `Ctrl+C`
   if (key === '\u0003') {
-    stdout.write('Exited game! 🐍\n');
+    stdout.write('You exited the game! 🕹️\n');
     process.exit();
   }
 
 };
 
+// Handle server ending connection
 const handleServerEnd = () => {
-  stdout.write('The server has ended the connection! 🐍\n');
+  stdout.write('The server has ended the connection! ⚡\n');
   process.exit();
 };
 

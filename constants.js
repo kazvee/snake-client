@@ -13,7 +13,8 @@ const MESSAGES = {
   '3': 'Say: om nom nom so hungry',
 };
 
-const PLAYER_NAME = 'Name: Kay';
+// Add random numbers to player name, making it easier to test multiple player connections
+const PLAYER_NAME = `Name: snek #${Math.floor(Math.random() * 90) + 10}`;
 
 module.exports = {
   IP,
